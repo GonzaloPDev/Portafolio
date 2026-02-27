@@ -1,0 +1,89 @@
+.name {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+  font-family: 'Calibre', 'Inter', sans-serif;
+}
+
+.role {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-top: 12px;
+  letter-spacing: 0.3px;
+}
+
+.bio {
+  margin-top: 16px;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 280px;
+}
+
+/* ── NAV ── */
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 4px 0;
+  transition: color 0.2s ease;
+  font-family: inherit;
+}
+
+.nav-item:hover {
+  color: var(--text-primary);
+}
+
+.nav-item:hover .nav-line,
+.nav-active .nav-line {
+  width: 56px;
+  background: var(--text-primary);
+}
+
+.nav-active {
+  color: var(--text-primary);
+}
+
+.nav-line {
+  display: block;
+  height: 1px;
+  width: 28px;
+  background: var(--text-muted);
+  transition: all 0.25s ease;
+}
+
+/* ── SOCIALS ── */
+.socials {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.social-link {
+  color: var(--text-secondary);
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.social-link:hover {
+  color: var(--accent);
+  transform: translateY(-2px);
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import { navItems, socialLinks } from "../data/data";
+import { navItems, socialLinks } from "../data/data.jsx";
 
 export default function LeftPanel({ activeNav, setActiveNav }) {
   return (

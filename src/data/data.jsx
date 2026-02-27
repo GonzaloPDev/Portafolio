@@ -30,6 +30,60 @@ export const experiences = [
   },
 ];
 
+export const aboutItems = [
+  {
+    title: "¿Quién soy?",
+    description:
+      "Soy estudiante avanzado de Ingeniería en Sistemas en UTN La Plata. Me enfoco en el análisis, diseño y estructuración de soluciones que puedan implementarse y utilizarse en contextos reales.",
+    tags: ["UTN FRLP", "La Plata, Argentina"],
+  },
+  {
+    title: "Mi enfoque técnico",
+    description:
+      "Trabajo principalmente con Django, React, Node.js y React Native, prestando especial atención a la arquitectura del sistema, la definición de reglas de negocio, la organización del código y la escalabilidad.",
+    tags: ["Django", "React", "Node.js", "React Native"],
+  },
+  {
+    title: "Habilidades blandas",
+    description:
+      "Me considero una persona con facilidad para la comunicación y el trabajo en equipo. Busco desarrollarme en entornos donde pueda combinar lo técnico con el análisis funcional y la interacción profesional.",
+    tags: ["Trabajo en equipo", "Comunicación", "Análisis funcional"],
+  },
+  {
+    title: "¿Qué busco?",
+    description:
+      "Estoy en búsqueda de mi primera experiencia formal en roles orientados a análisis funcional, backend o full stack, donde pueda involucrarme tanto en la comprensión del problema como en la implementación de la solución.",
+    tags: ["Full Stack", "Backend", "Análisis funcional"],
+  },
+];
+
+export const projects = [
+  {
+    period: "2025",
+    title: "App de Gestión — XtremeGym",
+    company: "React Native · Expo",
+    description:
+      "Aplicación mobile completa para la gestión integral de un gimnasio. Incluye administración de socios, membresías, pagos con MercadoPago, asistencias, notificaciones push y comunicación en tiempo real con WebSockets.",
+    tags: ["React Native", "Expo", "Node.js", "WebSockets", "MercadoPago"],
+  },
+  {
+    period: "2025",
+    title: "PAICAT — Sistema de Ingreso UTN",
+    company: "Laravel · Docker",
+    description:
+      "Plataforma web para digitalizar y optimizar la gestión del ingreso universitario de la UTN FRLP. Sistema de roles, módulo de asistencias con validación automática, reportes PDF/Excel y entorno contenerizado.",
+    tags: ["Laravel", "PHP", "Docker", "MariaDB", "Nginx"],
+  },
+  {
+    period: "2025",
+    title: "Sistema de Venta de Entradas",
+    company: "Django · Python",
+    description:
+      "Aplicación web para gestión y venta de entradas con Django SSR. Desarrollado con buenas prácticas de ingeniería: CI/CD con GitHub Actions, testing E2E con Playwright y contenerización con Docker.",
+    tags: ["Django", "Python", "Docker", "Playwright", "CI/CD"],
+  },
+];
+
 export const navItems = ["ABOUT", "EXPERIENCE", "PROJECTS"];
 
 export const socialLinks = [
