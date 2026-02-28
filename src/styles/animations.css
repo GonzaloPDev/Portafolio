@@ -4,11 +4,11 @@
   width: 1200px;
   height: 1200px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(74, 158, 186, 0.06) 0%, transparent 65%);
+  background: radial-gradient(circle, rgba(74, 158, 186, 0.18) 0%, transparent 65%);
   pointer-events: none;
   transform: translate(-50%, -50%);
   transition: left 0.12s ease, top 0.12s ease;
-  z-index: 0;
+  z-index: -1;
 }
 
 /* ── DARK VIGNETTE ── */
@@ -19,7 +19,7 @@
   top: 0;
   left: 0;
   pointer-events: none;
-  z-index: 1;
+  z-index: -1;
   background: radial-gradient(
     circle 600px at var(--mx, 50%) var(--my, 50%),
     transparent 0%,
@@ -71,7 +71,7 @@
   width: 100%;
   height: 70%;
   pointer-events: none;
-  z-index: 0;
+  z-index: -1;
   perspective: 400px;
   overflow: hidden;
 }
@@ -146,8 +146,7 @@
   box-shadow: 0 2px 12px rgba(74, 158, 186, 0.06);
 }
 
-.exp-card:hover,
-.exp-card.active {
+.exp-card:hover {
   box-shadow:
     0 4px 24px rgba(74, 158, 186, 0.12),
     0 0 0 1px rgba(74, 158, 186, 0.1);

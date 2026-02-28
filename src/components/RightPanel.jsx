@@ -66,7 +66,7 @@ export default function RightPanel({ activeNav, setActiveNav }) {
               <SectionCard
                 key={`project-${i}`}
                 item={item}
-                active={i === 0}
+                active={false}
                 index={i}
                 phase={phase}
                 onClick={(p, rect) => handleProjectClick(p, rect)}

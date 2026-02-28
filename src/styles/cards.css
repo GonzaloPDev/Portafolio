@@ -20,8 +20,7 @@
   cursor: pointer;
 }
 
-.exp-card:hover,
-.exp-card.active {
+.exp-card:hover {
   background: var(--bg-card);
   border-color: var(--border);
   box-shadow: 0 4px 32px rgba(2, 8, 20, 0.5);
@@ -54,8 +53,7 @@
   white-space: nowrap;
 }
 
-.exp-card:hover .exp-year,
-.exp-card.active .exp-year {
+.exp-card:hover .exp-year {
   color: var(--accent);
 }
 
@@ -75,8 +73,7 @@
   flex-wrap: wrap;
 }
 
-.exp-card:hover .exp-title,
-.exp-card.active .exp-title {
+.exp-card:hover .exp-title {
   color: var(--accent);
 }
 

@@ -1,18 +1,26 @@
 import React from "react";
 import { navItems, socialLinks } from "../data/data.jsx";
+import profilePic from "../media/Perfil.png";
 
 export default function LeftPanel({ activeNav, setActiveNav }) {
   return (
     <aside className="left-panel">
       <div className="left-content">
         <div>
+          <div className="profile-avatar-wrapper">
+            <img
+              src={profilePic}
+              alt="Gonzalo Perez"
+              className="profile-avatar"
+              fetchpriority="high"
+              loading="eager"
+              width="150"
+              height="150"
+              decoding="sync"
+            />
+          </div>
           <h1 className="name">Gonzalo Perez</h1>
-          <h2 className="role">Full Stack Developer</h2>
-          <p className="bio">
-            Estudiante avanzado de Ingeniería en Sistemas en UTN. Diseño y
-            construyo soluciones digitales reales, con foco en arquitectura
-            limpia, análisis funcional y código escalable.
-          </p>
+          <h2 className="role">Jr. Full Stack Developer</h2>
         </div>
 
         <nav className="nav">
