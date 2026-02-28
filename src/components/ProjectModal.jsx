@@ -49,22 +49,25 @@ export default function ProjectModal({ project, originRect, onClose }) {
                 <h2 className="modal-title">{project.title}</h2>
                 <span className="modal-company">{project.company}</span>
               </div>
-              <div className="modal-header-right">
-                <span className="modal-tags-label">Tecnologías</span>
-                <div className="modal-header-tags">
-                  {(project.allTags || project.tags || []).map((tag) => (
-                    <span key={tag} className="tag">{tag}</span>
-                  ))}
-                </div>
-              </div>
             </div>
           </div>
 
           {/* BODY */}
           <div className="modal-body">
+
             <div className="modal-section">
               <h3 className="modal-section-title">Descripción</h3>
               <p className="modal-text">{project.description}</p>
+            </div>
+
+            {/* TAGS */}
+            <div className="modal-section">
+              <h3 className="modal-section-title">Tecnologías</h3>
+              <div className="modal-body-tags">
+                {(project.allTags || project.tags || []).map((tag) => (
+                  <span key={tag} className="tag" style={{ flexShrink: 0 }}>{tag}</span>
+                ))}
+              </div>
             </div>
 
             {project.details && (
@@ -82,6 +85,26 @@ export default function ProjectModal({ project, originRect, onClose }) {
               <div className="modal-section">
                 <h3 className="modal-section-title">Mi rol</h3>
                 <p className="modal-text">{project.role}</p>
+              </div>
+            )}
+
+            {project.storeUrl && (
+              <div className="modal-section">
+                <h3 className="modal-section-title">Disponible en</h3>
+                <a
+                  href={project.storeUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="store-btn"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" className="store-btn-icon">
+                    <path d="M3.18 23.76c.3.17.64.24.99.2l12.1-12.1-3.37-3.37L3.18 23.76zM20.5 10.56l-2.56-1.47-3.79 3.79 3.79 3.79 2.59-1.49c.74-.43.74-1.19-.03-1.62zM1.03.57C.77.88.62 1.35.62 1.97v20.06c0 .62.15 1.09.41 1.4l.08.07 11.23-11.23v-.27L1.11.5l-.08.07zM13.65 8.28l-3.82-3.82L1.72.58c-.29-.17-.58-.21-.86-.13l12.12 12.12 .67-.67z"/>
+                  </svg>
+                  <div className="store-btn-text">
+                    <span className="store-btn-sub">Disponible en</span>
+                    <span className="store-btn-main">Google Play</span>
+                  </div>
+                </a>
               </div>
             )}
 

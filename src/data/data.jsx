@@ -30,6 +30,7 @@ export const projects = [
       "Participé en el diseño de la arquitectura y en la implementación completa de la aplicación móvil y el backend, con foco en escalabilidad, seguridad y preparación para entorno productivo. Más que un desarrollo técnico, el proyecto implicó comprender el modelo de negocio del gimnasio, optimizar procesos operativos y construir una herramienta alineada con objetivos comerciales reales.",
     mainTags: ["React Native", "Expo", "MercadoPago", "Django"],
     allTags: ["React Native", "Tailwind CSS", "Expo", "Node.js", "WebSockets","Firebase", "MercadoPago", "PostgreSQL", "PDF", "Push Notifications", "Cloud Storage", "Django", "Python"],
+    storeUrl: "https://play.google.com/store/apps/details?id=com.fedevalle.xtremegym&pli=1",
   },
   {
     year: "2025",

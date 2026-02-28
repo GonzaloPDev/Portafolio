@@ -82,11 +82,7 @@
 }
 
 .modal-header-right {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  min-width: 160px;
-  max-width: 220px;
+  display: none;
 }
 
 .modal-tags-label {
@@ -103,6 +99,13 @@
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+}
+
+/* Tags en el body — wrap normal */
+.modal-body-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .modal-close {
@@ -332,3 +335,47 @@
 
 .img-nav-prev { left: 20px; }
 .img-nav-next { right: 20px; }
+/* ── STORE BUTTON ── */
+.store-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 20px;
+  background: #000;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.2s ease;
+}
+
+.store-btn:hover {
+  background: #1a1a1a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.store-btn-icon {
+  flex-shrink: 0;
+  color: white;
+}
+
+.store-btn-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.store-btn-sub {
+  font-size: 0.65rem;
+  letter-spacing: 0.5px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1;
+}
+
+.store-btn-main {
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #fff;
+}

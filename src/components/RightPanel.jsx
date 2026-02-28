@@ -38,17 +38,6 @@ export default function RightPanel({ activeNav, setActiveNav }) {
     };
   }, [activeNav]);
 
-  const handleScroll = () => {
-    const el = scrollRef.current;
-    if (!el) return;
-    const atBottom = el.scrollHeight - el.scrollTop - el.clientHeight < 40;
-    if (!atBottom) return;
-    const currentIndex = NAV_KEYS.indexOf(activeNav);
-    if (currentIndex < NAV_KEYS.length - 1) {
-      setActiveNav(NAV_KEYS[currentIndex + 1]);
-    }
-  };
-
   const handleProjectClick = (project, rect) => {
     setOriginRect(rect);
     setSelectedProject(project);
@@ -79,7 +68,7 @@ export default function RightPanel({ activeNav, setActiveNav }) {
   };
 
   return (
-    <main className="right-panel" ref={scrollRef} onScroll={handleScroll}>
+    <main className="right-panel" ref={scrollRef}>
       <div className={`section-wrapper card-${phase}`}>
         {renderSection()}
       </div>
