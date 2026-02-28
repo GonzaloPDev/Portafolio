@@ -1,90 +1,107 @@
 import React from "react";
 
-export const experiences = [
-  {
-    period: "SEPT 2025 — ACTUALIDAD",
-    title: "Full Stack Developer",
-    company: "XtremeGym",
-    subtitle: "Freelance · Santa Teresita, Buenos Aires",
-    description:
-      "Desarrollo end-to-end de una solución digital para un cliente real. Trabajé directamente con el cliente en el relevamiento de requerimientos y redefinición de procesos internos. La solución permite gestionar socios, membresías, pagos y asistencias, con integración a MercadoPago, generación de comprobantes PDF, notificaciones push y comunicación en tiempo real via WebSockets.",
-    tags: ["React Native", "Expo", "Node.js", "WebSockets", "MercadoPago"],
-  },
-  {
-    period: "JUN 2025 — ACTUALIDAD",
-    title: "Desarrollador Backend",
-    company: "PAICAT — UTN FRLP",
-    subtitle: "Proyecto académico · La Plata, Buenos Aires",
-    description:
-      "Plataforma web para la gestión integral del curso de ingreso universitario de la UTN FRLP. Implementé el módulo de Asistencias con validación automática de porcentajes mínimos. El sistema contempla roles (Administrador, Coordinador, Docente, Alumno), reportes en PDF/Excel e integración con bases de datos académicas externas. Entorno contenerizado con Docker y Docker Compose.",
-    tags: ["Laravel", "PHP", "Docker", "MariaDB", "Nginx"],
-  },
-  {
-    period: "ABR 2025 — JUL 2025",
-    title: "Desarrollador Backend",
-    company: "Gestión de Entradas — UTN FRLP",
-    subtitle: "Proyecto académico · La Plata, Buenos Aires",
-    description:
-      "Aplicación web para gestión y venta de entradas con Django. Trabajé con flujo colaborativo en Git, pull requests y revisiones de código. Implementé pruebas unitarias, de integración y E2E con Playwright, integración de Ruff y pipeline CI/CD con GitHub Actions.",
-    tags: ["Django", "Python", "Docker", "Playwright", "GitHub Actions", "CI/CD"],
-  },
-];
-
-export const aboutItems = [
-  {
-    title: "¿Quién soy?",
-    description:
-      "Soy estudiante avanzado de Ingeniería en Sistemas en UTN La Plata. Me enfoco en el análisis, diseño y estructuración de soluciones que puedan implementarse y utilizarse en contextos reales.",
-    tags: ["UTN FRLP", "La Plata, Argentina"],
-  },
-  {
-    title: "Mi enfoque técnico",
-    description:
-      "Trabajo principalmente con Django, React, Node.js y React Native, prestando especial atención a la arquitectura del sistema, la definición de reglas de negocio, la organización del código y la escalabilidad.",
-    tags: ["Django", "React", "Node.js", "React Native"],
-  },
-  {
-    title: "Habilidades blandas",
-    description:
-      "Me considero una persona con facilidad para la comunicación y el trabajo en equipo. Busco desarrollarme en entornos donde pueda combinar lo técnico con el análisis funcional y la interacción profesional.",
-    tags: ["Trabajo en equipo", "Comunicación", "Análisis funcional"],
-  },
-  {
-    title: "¿Qué busco?",
-    description:
-      "Estoy en búsqueda de mi primera experiencia formal en roles orientados a análisis funcional, backend o full stack, donde pueda involucrarme tanto en la comprensión del problema como en la implementación de la solución.",
-    tags: ["Full Stack", "Backend", "Análisis funcional"],
-  },
-];
-
 export const projects = [
   {
-    period: "2025",
+    year: "2025",
+    current: true,
+    period: "Actualidad",
     title: "App de Gestión — XtremeGym",
-    company: "React Native · Expo",
+    company: "Freelance · Santa Teresita, Buenos Aires",
+    intro: "Desarrollo end-to-end de una solución digital para un gimnasio real, actualmente en etapa final previa a producción.",
     description:
-      "Aplicación mobile completa para la gestión integral de un gimnasio. Incluye administración de socios, membresías, pagos con MercadoPago, asistencias, notificaciones push y comunicación en tiempo real con WebSockets.",
-    tags: ["React Native", "Expo", "Node.js", "WebSockets", "MercadoPago"],
+      "Junto a un compañero de equipo, desarrollamos una solución digital integral para XtremeGym, gimnasio ubicado en Santa Teresita. Trabajamos directamente con el cliente en el relevamiento de requerimientos, análisis del problema y redefinición de procesos internos, transformando una gestión manual en un sistema digital que será utilizado en la operación diaria del negocio.",
+    details: [
+      "Gestión de socios, membresías, pagos y administración general",
+      "Integración con MercadoPago para cobros digitales",
+      "Generación automática de comprobantes en PDF",
+      "Notificaciones push para recordatorios y vencimientos",
+      "Comunicación en tiempo real mediante WebSockets",
+      "Almacenamiento de archivos en la nube",
+      "Registro y control de asistencias diarias",
+    ],
+    role:
+      "Participé en el diseño de la arquitectura y en la implementación completa de la aplicación móvil y el backend, con foco en escalabilidad, seguridad y preparación para entorno productivo. Más que un desarrollo técnico, el proyecto implicó comprender el modelo de negocio del gimnasio, optimizar procesos operativos y construir una herramienta alineada con objetivos comerciales reales.",
+    mainTags: ["React Native", "Node.js", "MercadoPago"],
+    allTags: ["React Native", "Expo", "Node.js", "WebSockets", "MercadoPago", "PostgreSQL", "PDF", "Push Notifications", "Cloud Storage"],
   },
   {
+    year: "2025",
+    current: true,
     period: "2025",
-    title: "PAICAT — Sistema de Ingreso UTN",
-    company: "Laravel · Docker",
+    title: "PAICAT — Sistema de Ingreso UTN FRLP",
+    company: "Proyecto académico · UTN FRLP, La Plata",
+    intro: "Plataforma web para la gestión integral del curso de ingreso universitario de la UTN FRLP.",
     description:
-      "Plataforma web para digitalizar y optimizar la gestión del ingreso universitario de la UTN FRLP. Sistema de roles, módulo de asistencias con validación automática, reportes PDF/Excel y entorno contenerizado.",
-    tags: ["Laravel", "PHP", "Docker", "MariaDB", "Nginx"],
+      "Desarrollo de una plataforma web para digitalizar y optimizar la gestión del ingreso universitario de la UTN FRLP utilizando Laravel. El sistema administra comisiones con control de cupos, alumnos, docentes, asistencias con validación automática de porcentajes mínimos y calificaciones por materia con recuperatorios. Se estima su implementación para el inicio del Ingreso 2026.",
+    details: [
+      "Administración de comisiones con control de cupos",
+      "Gestión de alumnos y docentes",
+      "Registro de asistencias con validación automática de porcentajes mínimos",
+      "Carga de calificaciones por materia con configuración de recuperatorios",
+      "Esquema de roles (Administrador, Coordinador, Docente, Alumno)",
+      "Generación de reportes en PDF y Excel",
+      "Integración con bases de datos académicas externas en modo solo lectura",
+      "Entorno contenerizado con Docker y Docker Compose (PHP, Nginx, MariaDB, Vite, Mailhog)",
+    ],
+    role:
+      "Además de participar en tareas de análisis, diseño, elicitación y validación de requerimientos junto al área académica, me enfoqué especialmente en el diseño e implementación del módulo de Asistencias, definiendo reglas de negocio, modelado de datos y lógica de validación automática de porcentajes mínimos, asegurando consistencia y trazabilidad de la información.",
+    mainTags: ["Laravel", "Docker", "MariaDB"],
+    allTags: ["Laravel", "PHP", "Docker", "Docker Compose", "MariaDB", "Nginx", "Vite", "Mailhog", "PDF", "Excel", "Roles & Permisos"],
   },
   {
+    year: "2025",
+    current: false,
     period: "2025",
     title: "Sistema de Venta de Entradas",
-    company: "Django · Python",
+    company: "Proyecto académico · UTN FRLP, La Plata",
+    intro: "Aplicación web para gestión y venta de entradas con foco en buenas prácticas de ingeniería y trabajo colaborativo.",
     description:
-      "Aplicación web para gestión y venta de entradas con Django SSR. Desarrollado con buenas prácticas de ingeniería: CI/CD con GitHub Actions, testing E2E con Playwright y contenerización con Docker.",
-    tags: ["Django", "Python", "Docker", "Playwright", "CI/CD"],
+      "Participé en el desarrollo de una aplicación web para la gestión y venta de entradas utilizando Django, implementando vistas y templates con renderizado del lado del servidor (SSR). El proyecto fue desarrollado con un fuerte enfoque en mantenibilidad, buenas prácticas de ingeniería y mejora continua.",
+    details: [
+      "Desarrollo de vistas y templates con renderizado SSR en Django",
+      "Flujo colaborativo con Git y feature branches",
+      "Pull requests y revisiones de código como parte del proceso de desarrollo",
+      "Pruebas unitarias, de integración y end-to-end con Playwright",
+      "Integración de Ruff para calidad de código",
+      "Configuración de pipeline CI/CD con GitHub Actions para validaciones automáticas",
+      "Contenerización completa con Docker",
+    ],
+    role:
+      "Esta experiencia fue especialmente enriquecedora para mi crecimiento profesional. Me permitió profundizar en el uso de GitHub Actions, comprender en la práctica la implementación de CI/CD y trabajar bajo una metodología ágil, entendiendo la importancia del testing, la revisión de código y los procesos colaborativos en entornos reales de desarrollo.",
+    mainTags: ["Django", "Python", "Docker"],
+    allTags: ["Django", "Python", "Docker", "Playwright", "GitHub Actions", "CI/CD", "Ruff", "Git", "SSR"],
   },
 ];
 
-export const navItems = ["ABOUT", "EXPERIENCE", "PROJECTS"];
+export const technologies = [
+  {
+    category: "Frontend",
+    description: "Desarrollo de interfaces web y mobile con foco en experiencia de usuario.",
+    skills: ["React", "React Native", "JavaScript", "HTML", "CSS"],
+  },
+  {
+    category: "Backend",
+    description: "Construcción de APIs, lógica de negocio y arquitectura de servidores.",
+    skills: ["Django", "Node.js", "Python"],
+  },
+  {
+    category: "Base de datos",
+    description: "Modelado de datos y gestión de bases relacionales.",
+    skills: ["MySQL", "SQLite", "MariaDB"],
+  },
+  {
+    category: "Testing",
+    description: "Estrategias de verificación para garantizar calidad y confiabilidad del código.",
+    skills: ["Playwright", "Test unitario", "Test de integración", "End to End"],
+  },
+  {
+    category: "DevOps & Herramientas",
+    description: "Automatización, contenedores y flujos de trabajo colaborativos.",
+    skills: ["Docker", "Git", "GitHub Actions", "CI/CD", "Nginx", "Kanban"],
+  },
+];
+
+export const navItems = ["ABOUT", "TECNOLOGÍAS", "PROYECTOS", "CONTACTO"];
 
 export const socialLinks = [
   {

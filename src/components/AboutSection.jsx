@@ -3,7 +3,6 @@ import SectionCard from "./SectionCard";
 import AboutSection from "./AboutSection";
 import TechSection from "./TechSection";
 import ContactSection from "./ContactSection";
-import ProjectModal from "./ProjectModal";
 import { projects } from "../data/data.jsx";
 
 const NAV_KEYS = ["ABOUT", "TECNOLOGÍAS", "PROYECTOS", "CONTACTO"];
@@ -12,14 +11,12 @@ export default function RightPanel({ activeNav, setActiveNav }) {
   const scrollRef = useRef(null);
   const [visibleSection, setVisibleSection] = useState(activeNav);
   const [phase, setPhase] = useState("idle");
-  const [selectedProject, setSelectedProject] = useState(null);
-  const [originRect, setOriginRect] = useState(null);
   const prevNav = useRef(activeNav);
 
   useEffect(() => {
     if (activeNav === prevNav.current) return;
     prevNav.current = activeNav;
-    setSelectedProject(null);
+
     setPhase("glitch-out");
 
     const swapTimeout = setTimeout(() => {
@@ -49,16 +46,12 @@ export default function RightPanel({ activeNav, setActiveNav }) {
     }
   };
 
-  const handleProjectClick = (project, rect) => {
-    setOriginRect(rect);
-    setSelectedProject(project);
-  };
-
   const renderSection = () => {
     switch (visibleSection) {
-      case "ABOUT":       return <AboutSection />;
-      case "TECNOLOGÍAS": return <TechSection />;
-      case "CONTACTO":    return <ContactSection />;
+      case "ABOUT":
+        return <AboutSection />;
+      case "TECNOLOGÍAS":
+        return <TechSection />;
       case "PROYECTOS":
         return (
           <div className="exp-list">
@@ -69,12 +62,14 @@ export default function RightPanel({ activeNav, setActiveNav }) {
                 active={i === 0}
                 index={i}
                 phase={phase}
-                onClick={(p, rect) => handleProjectClick(p, rect)}
               />
             ))}
           </div>
         );
-      default: return null;
+      case "CONTACTO":
+        return <ContactSection />;
+      default:
+        return null;
     }
   };
 
@@ -83,14 +78,6 @@ export default function RightPanel({ activeNav, setActiveNav }) {
       <div className={`section-wrapper card-${phase}`}>
         {renderSection()}
       </div>
-
-      {selectedProject && (
-        <ProjectModal
-          project={selectedProject}
-          originRect={originRect}
-          onClose={() => setSelectedProject(null)}
-        />
-      )}
     </main>
   );
 }

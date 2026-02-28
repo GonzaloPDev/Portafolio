@@ -4,10 +4,14 @@
   gap: 4px;
 }
 
+.section-wrapper {
+  width: 100%;
+}
+
 /* ── CARD ── */
 .exp-card {
   display: grid;
-  grid-template-columns: 120px 1fr;
+  grid-template-columns: 80px 1fr;
   gap: 24px;
   padding: 24px;
   border-radius: 8px;
@@ -23,18 +27,35 @@
   box-shadow: 0 4px 32px rgba(2, 8, 20, 0.5);
 }
 
-.exp-period {
+/* Columna de fecha */
+.exp-period-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding-top: 4px;
+}
+
+.exp-year {
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 1px;
   color: var(--text-muted);
   text-transform: uppercase;
-  padding-top: 4px;
   white-space: nowrap;
 }
 
-.exp-card:hover .exp-period,
-.exp-card.active .exp-period {
+.exp-current {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  color: var(--accent);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.exp-card:hover .exp-year,
+.exp-card.active .exp-year {
   color: var(--accent);
 }
 
