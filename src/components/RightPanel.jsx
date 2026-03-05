@@ -16,41 +16,28 @@ export default function RightPanel({ activeNav, setActiveNav }) {
   const isScrollingTo = useRef(false);
   const lastNav = useRef(activeNav);
 
-  // Scroll suave al clickear nav
   useEffect(() => {
     const el = sectionRefs.current[activeNav];
     if (!el || !scrollRef.current) return;
-
     const currentIndex = NAV_KEYS.indexOf(activeNav);
     const lastIndex = NAV_KEYS.indexOf(lastNav.current);
     const goingDown = currentIndex >= lastIndex;
-
     isScrollingTo.current = true;
-    el.scrollIntoView({
-      behavior: "smooth",
-      block: goingDown ? "start" : "end",
-    });
-
+    el.scrollIntoView({ behavior: "smooth", block: goingDown ? "start" : "end" });
     lastNav.current = activeNav;
     setTimeout(() => { isScrollingTo.current = false; }, 1000);
   }, [activeNav]);
 
-  // Detectar sección activa por scroll — sin IntersectionObserver
   const handleScroll = useCallback(() => {
     if (isScrollingTo.current) return;
     const container = scrollRef.current;
     if (!container) return;
-
     const scrollMid = container.scrollTop + container.clientHeight * 0.4;
-
     let current = NAV_KEYS[0];
     NAV_KEYS.forEach((key) => {
       const el = sectionRefs.current[key];
-      if (el && el.offsetTop <= scrollMid) {
-        current = key;
-      }
+      if (el && el.offsetTop <= scrollMid) current = key;
     });
-
     if (current !== lastNav.current) {
       lastNav.current = current;
       setActiveNav(current);
@@ -95,7 +82,6 @@ export default function RightPanel({ activeNav, setActiveNav }) {
               item={item}
               active={false}
               index={i}
-              phase="idle"
               onClick={(p, rect) => handleProjectClick(p, rect)}
             />
           ))}
