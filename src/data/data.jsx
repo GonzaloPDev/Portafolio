@@ -1,5 +1,20 @@
 import React from "react";
 
+// XtremeGym
+import gym1 from "../media/XtremeGymCapturas/gymscreenshot.webp";
+import gym2 from "../media/XtremeGymCapturas/gymscreenshot2.webp";
+import gym3 from "../media/XtremeGymCapturas/WhatsApp Image 2026-02-25 at 17.54.12.jpeg";
+import gym4 from "../media/XtremeGymCapturas/WhatsApp Image 2026-02-25 at 17.54.38.jpeg";
+import gym5 from "../media/XtremeGymCapturas/WhatsApp Image 2026-02-25 at 18.32.16.jpeg";
+
+// PAICAT
+import paicat1 from "../media/PAICATCapturas/PantallaGeneralDeAlumnosEnRiesgo.jpeg";
+import paicat2 from "../media/PAICATCapturas/PantallaHistorialAsistenciasPorComision.jpeg";
+
+// EventHub
+import event1 from "../media/EventHubCapturas/MenuPrincipal.jpeg";
+import event2 from "../media/EventHubCapturas/Notificaciones.jpeg";
+
 export const projects = [
   {
     year: "2025",
@@ -19,25 +34,19 @@ export const projects = [
       "Almacenamiento de archivos en la nube",
       "Registro y control de asistencias diarias",
     ],
-    images: [
-      "/src/media/XtremeGymCapturas/gymscreenshot.webp",
-      "/src/media/XtremeGymCapturas/gymscreenshot2.webp",
-      "/src/media/XtremeGymCapturas/WhatsApp Image 2026-02-25 at 17.54.12.jpeg",
-      "/src/media/XtremeGymCapturas/WhatsApp Image 2026-02-25 at 17.54.38.jpeg",
-      "/src/media/XtremeGymCapturas/WhatsApp Image 2026-02-25 at 18.32.16.jpeg",
-    ],
+    images: [gym1, gym2, gym3, gym4, gym5],
     role:
       "Participé en el diseño de la arquitectura y en la implementación completa de la aplicación móvil y el backend, con foco en escalabilidad, seguridad y preparación para entorno productivo. Más que un desarrollo técnico, el proyecto implicó comprender el modelo de negocio del gimnasio, optimizar procesos operativos y construir una herramienta alineada con objetivos comerciales reales.",
     mainTags: ["React Native", "Expo", "MercadoPago", "Django"],
-    allTags: ["React Native", "Tailwind CSS", "Expo", "Node.js", "WebSockets","Firebase", "MercadoPago", "PostgreSQL", "PDF", "Push Notifications", "Cloud Storage", "Django", "Python"],
+    allTags: ["React Native", "Tailwind CSS", "Expo", "Node.js", "WebSockets", "Firebase", "MercadoPago", "PostgreSQL", "PDF", "Push Notifications", "Cloud Storage", "Django", "Python"],
     storeUrl: "https://play.google.com/store/apps/details?id=com.fedevalle.xtremegym&pli=1",
   },
   {
     year: "2025",
-    current: true,
+    current: false,
     period: "2025",
     title: "PAICAT — Sistema de Ingreso UTN FRLP",
-    company: "Proyecto académico · UTN FRLP, La Plata",
+    company: "Trabajo final título intermedio · Analista de Sistemas UTN",
     intro: "Plataforma web para la gestión integral del curso de ingreso universitario de la UTN FRLP.",
     description:
       "Desarrollo de una plataforma web para digitalizar y optimizar la gestión del ingreso universitario de la UTN FRLP utilizando Laravel. El sistema administra comisiones con control de cupos, alumnos, docentes, asistencias con validación automática de porcentajes mínimos y calificaciones por materia con recuperatorios. Se estima su implementación para el inicio del Ingreso 2026.",
@@ -51,12 +60,7 @@ export const projects = [
       "Integración con bases de datos académicas externas en modo solo lectura",
       "Entorno contenerizado con Docker y Docker Compose (PHP, Nginx, MariaDB, Vite, Mailhog)",
     ],
-    images: [
-      "/src/media/PAICATCapturas/PantallaGeneralDeAlumnosEnRiesgo.jpeg",
-      "/src/media/PAICATCapturas/PantallaHistorialAsistenciasPorComision.jpeg",
-      "/src/media/PAICATCapturas/PantallaCargaDeCalificaciones.jpeg",
-      "/src/media/PAICATCapturas/PantallaReporteDeAsistenciasEnPDF.jpeg",
-    ],
+    images: [paicat1, paicat2],
     role:
       "Además de participar en tareas de análisis, diseño, elicitación y validación de requerimientos junto al área académica, me enfoqué especialmente en el diseño e implementación del módulo de Asistencias, definiendo reglas de negocio, modelado de datos y lógica de validación automática de porcentajes mínimos, asegurando consistencia y trazabilidad de la información.",
     mainTags: ["Laravel", "Docker", "MariaDB"],
@@ -80,12 +84,7 @@ export const projects = [
       "Configuración de pipeline CI/CD con GitHub Actions para validaciones automáticas",
       "Contenerización completa con Docker",
     ],
-    images: [
-      "/src/media/EventHubCapturas/MenuPrincipal.jpeg",
-      "/src/media/EventHubCapturas/Notificaciones.jpeg",
-      "/src/media/EventHubCapturas/ProcesoDeCompra.jpeg",
-      "/src/media/EventHubCapturas/PanelDeAdministracion.jpeg",
-    ],
+    images: [event1, event2],
     role:
       "Esta experiencia fue especialmente enriquecedora para mi crecimiento profesional. Me permitió profundizar en el uso de GitHub Actions, comprender en la práctica la implementación de CI/CD y trabajar bajo una metodología ágil, entendiendo la importancia del testing, la revisión de código y los procesos colaborativos en entornos reales de desarrollo.",
     mainTags: ["Django", "Python", "Docker"],
@@ -138,7 +137,7 @@ export const socialLinks = [
     url: "https://www.linkedin.com/in/gonzalo-perez-4b94783b3",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227 .792 24 1 .798C .8 .8 .8 .8 .8 .8l-.8-.8z" />
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
       </svg>
     ),
   },

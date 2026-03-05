@@ -20,7 +20,7 @@ export default function LeftPanel({ activeNav, setActiveNav }) {
             />
           </div>
           <h1 className="name">Gonzalo Perez</h1>
-          <h2 className="role">Jr. Full Stack Developer</h2>
+          <h2 className="role">Análisis de Sistemas · Full Stack Developer</h2>
         </div>
 
         <nav className="nav">
