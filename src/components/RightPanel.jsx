@@ -1,8 +1,8 @@
 import React, { useRef, useEffect, useState, useCallback } from "react";
-import SectionCard from "./SectionCard";
 import AboutSection from "./AboutSection";
 import TechSection from "./TechSection";
 import ContactSection from "./ContactSection";
+import SectionCard from "./SectionCard";
 import ProjectModal from "./ProjectModal";
 import { projects } from "../data/data.jsx";
 
@@ -10,126 +10,104 @@ const NAV_KEYS = ["ABOUT", "TECNOLOGÍAS", "PROYECTOS", "CONTACTO"];
 
 export default function RightPanel({ activeNav, setActiveNav }) {
   const scrollRef = useRef(null);
-  const [visibleSection, setVisibleSection] = useState(activeNav);
-  const [phase, setPhase] = useState("idle");
+  const sectionRefs = useRef({});
   const [selectedProject, setSelectedProject] = useState(null);
   const [originRect, setOriginRect] = useState(null);
-  const [atBottom, setAtBottom] = useState(false);
-  const [atTop, setAtTop] = useState(true);
-  const prevNav = useRef(activeNav);
+  const isScrollingTo = useRef(false);
+  const lastNav = useRef(activeNav);
 
+  // Scroll suave al clickear nav
   useEffect(() => {
-    if (activeNav === prevNav.current) return;
-    prevNav.current = activeNav;
-    setSelectedProject(null);
-    setPhase("glitch-out");
+    const el = sectionRefs.current[activeNav];
+    if (!el || !scrollRef.current) return;
 
-    const swapTimeout = setTimeout(() => {
-      setVisibleSection(activeNav);
-      if (scrollRef.current) scrollRef.current.scrollTop = 0;
-      setAtTop(true);
-      setAtBottom(false);
-      setPhase("glitch-in");
-    }, 320);
+    const currentIndex = NAV_KEYS.indexOf(activeNav);
+    const lastIndex = NAV_KEYS.indexOf(lastNav.current);
+    const goingDown = currentIndex >= lastIndex;
 
-    const doneTimeout = setTimeout(() => setPhase("idle"), 900);
+    isScrollingTo.current = true;
+    el.scrollIntoView({
+      behavior: "smooth",
+      block: goingDown ? "start" : "end",
+    });
 
-    return () => {
-      clearTimeout(swapTimeout);
-      clearTimeout(doneTimeout);
-    };
+    lastNav.current = activeNav;
+    setTimeout(() => { isScrollingTo.current = false; }, 1000);
   }, [activeNav]);
 
+  // Detectar sección activa por scroll — sin IntersectionObserver
   const handleScroll = useCallback(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    const scrollTop = el.scrollTop;
-    const scrollHeight = el.scrollHeight;
-    const clientHeight = el.clientHeight;
+    if (isScrollingTo.current) return;
+    const container = scrollRef.current;
+    if (!container) return;
 
-    setAtTop(scrollTop < 80);
-    setAtBottom(scrollHeight - scrollTop - clientHeight < 50);
-  }, []);
+    const scrollMid = container.scrollTop + container.clientHeight * 0.4;
 
-  // Chequear posición inicial cuando cambia la sección
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    const scrollHeight = el.scrollHeight;
-    const clientHeight = el.clientHeight;
-    // Si el contenido no scrollea, mostrar ambos botones según corresponda
-    if (scrollHeight <= clientHeight + 10) {
-      setAtTop(true);
-      setAtBottom(true);
+    let current = NAV_KEYS[0];
+    NAV_KEYS.forEach((key) => {
+      const el = sectionRefs.current[key];
+      if (el && el.offsetTop <= scrollMid) {
+        current = key;
+      }
+    });
+
+    if (current !== lastNav.current) {
+      lastNav.current = current;
+      setActiveNav(current);
     }
-  }, [visibleSection]);
+  }, [setActiveNav]);
 
-  const goNext = () => {
-    const i = NAV_KEYS.indexOf(activeNav);
-    if (i < NAV_KEYS.length - 1) setActiveNav(NAV_KEYS[i + 1]);
-  };
-
-  const goPrev = () => {
-    const i = NAV_KEYS.indexOf(activeNav);
-    if (i > 0) setActiveNav(NAV_KEYS[i - 1]);
-  };
-
-  const currentIndex = NAV_KEYS.indexOf(activeNav);
-  const showUp = currentIndex > 0 && atTop;
-  const showDown = currentIndex < NAV_KEYS.length - 1 && atBottom;
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+    container.addEventListener("scroll", handleScroll, { passive: true });
+    return () => container.removeEventListener("scroll", handleScroll);
+  }, [handleScroll]);
 
   const handleProjectClick = (project, rect) => {
     setOriginRect(rect);
     setSelectedProject(project);
   };
 
-  const renderSection = () => {
-    switch (visibleSection) {
-      case "ABOUT":       return <AboutSection />;
-      case "TECNOLOGÍAS": return <TechSection />;
-      case "CONTACTO":    return <ContactSection />;
-      case "PROYECTOS":
-        return (
-          <div className="exp-list">
-            {projects.map((item, i) => (
-              <SectionCard
-                key={`project-${i}`}
-                item={item}
-                active={false}
-                index={i}
-                phase={phase}
-                onClick={(p, rect) => handleProjectClick(p, rect)}
-              />
-            ))}
-          </div>
-        );
-      default: return null;
-    }
-  };
-
   return (
-    <main className="right-panel" ref={scrollRef} onScroll={handleScroll}>
-      <div className={`section-wrapper card-${phase}`}>
-        {renderSection()}
-      </div>
+    <main className="right-panel" ref={scrollRef}>
 
-      {/* Flecha arriba — siempre renderizada, visibilidad por CSS */}
-      <button
-        className={`panel-nav panel-nav-up ${showUp ? "panel-nav-visible" : ""}`}
-        onClick={goPrev}
-      >
-        <span className="panel-nav-arrow">↑</span>
-        <span className="panel-nav-label">{NAV_KEYS[currentIndex - 1] || ""}</span>
-      </button>
+      <section className="right-section" data-section="ABOUT"
+        ref={(el) => (sectionRefs.current["ABOUT"] = el)}>
+        <AboutSection />
+      </section>
 
-      {/* Flecha abajo — siempre renderizada, visibilidad por CSS */}
-      <button
-        className={`panel-nav panel-nav-down ${showDown ? "panel-nav-visible" : ""}`}
-        onClick={goNext}
-      >
-        <span className="panel-nav-label">{NAV_KEYS[currentIndex + 1] || ""}</span>
-        <span className="panel-nav-arrow">↓</span>
-      </button>
+      <div className="section-divider" />
+
+      <section className="right-section" data-section="TECNOLOGÍAS"
+        ref={(el) => (sectionRefs.current["TECNOLOGÍAS"] = el)}>
+        <TechSection />
+      </section>
+
+      <div className="section-divider" />
+
+      <section className="right-section" data-section="PROYECTOS"
+        ref={(el) => (sectionRefs.current["PROYECTOS"] = el)}>
+        <div className="exp-list">
+          {projects.map((item, i) => (
+            <SectionCard
+              key={`project-${i}`}
+              item={item}
+              active={false}
+              index={i}
+              phase="idle"
+              onClick={(p, rect) => handleProjectClick(p, rect)}
+            />
+          ))}
+        </div>
+      </section>
+
+      <div className="section-divider" />
+
+      <section className="right-section" data-section="CONTACTO"
+        ref={(el) => (sectionRefs.current["CONTACTO"] = el)}>
+        <ContactSection />
+      </section>
 
       {selectedProject && (
         <ProjectModal

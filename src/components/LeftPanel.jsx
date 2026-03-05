@@ -1,6 +1,6 @@
 import React from "react";
 import { navItems, socialLinks } from "../data/data.jsx";
-import profilePic from "../media/Perfil.png";
+import profilePic from "../media/Perfil.webp";
 
 export default function LeftPanel({ activeNav, setActiveNav }) {
   return (
