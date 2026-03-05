@@ -50,25 +50,30 @@
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   .portfolio {
-    flex-direction: column;
-    padding: 32px 20px;
+    display: block;
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+    padding: 0;
   }
 
   .left-panel {
     position: static;
     height: auto;
     width: 100%;
-    padding: 0 0 40px 0;
+    min-width: unset;
+    padding: 0;
+    display: none;
   }
 
   .right-panel {
+    height: auto;
+    overflow-y: visible;
     padding: 0;
   }
 }
 
-/* ══════════════════════════════
-   MOBILE LANDING
-══════════════════════════════ */
+/* ── MOBILE LANDING ── */
 .mobile-landing {
   max-width: 600px;
   margin: 0 auto;
@@ -78,7 +83,6 @@
   gap: 0;
 }
 
-/* ── HEADER ── */
 .mobile-header {
   display: flex;
   flex-direction: column;
@@ -110,7 +114,6 @@
   margin-top: 20px;
 }
 
-/* ── SECCIONES ── */
 .mobile-main {
   display: flex;
   flex-direction: column;
@@ -160,4 +163,63 @@
   flex: 1 !important;
   padding-left: 24px !important;
   min-width: 0;
+}
+
+  /* ── PANEL NAV ARROWS ── */
+.panel-nav {
+  position: fixed;
+  left: 72%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  padding: 8px 18px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.panel-nav-up {
+  top: 24px;
+  transform: translateX(-50%) translateY(-6px);
+}
+
+.panel-nav-down {
+  bottom: 24px;
+  transform: translateX(-50%) translateY(6px);
+}
+
+.panel-nav-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.panel-nav-visible.panel-nav-up {
+  transform: translateX(-50%) translateY(0);
+}
+
+.panel-nav-visible.panel-nav-down {
+  transform: translateX(-50%) translateY(0);
+}
+
+.panel-nav:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 4px 20px rgba(74, 158, 186, 0.12);
+}
+
+.panel-nav-arrow {
+  font-size: 0.9rem;
 }
