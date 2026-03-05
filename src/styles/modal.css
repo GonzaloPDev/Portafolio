@@ -379,3 +379,31 @@
   line-height: 1.2;
   color: #fff;
 }
+
+/* ── REPOS ── */
+.modal-repos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.modal-repo-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 99px;
+  border: 1px solid var(--border);
+  background: var(--bg-card-hover);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.modal-repo-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 0 0 12px rgba(74, 158, 186, 0.1);
+}

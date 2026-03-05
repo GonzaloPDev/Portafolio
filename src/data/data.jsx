@@ -39,6 +39,10 @@ export const projects = [
       "Participé en el diseño de la arquitectura y en la implementación completa de la aplicación móvil y el backend, con foco en escalabilidad, seguridad y preparación para entorno productivo. Más que un desarrollo técnico, el proyecto implicó comprender el modelo de negocio del gimnasio, optimizar procesos operativos y construir una herramienta alineada con objetivos comerciales reales.",
     mainTags: ["React Native", "Expo", "MercadoPago", "Django"],
     allTags: ["React Native", "Tailwind CSS", "Expo", "Node.js", "WebSockets", "Firebase", "MercadoPago", "PostgreSQL", "PDF", "Push Notifications", "Cloud Storage", "Django", "Python"],
+    repoUrls: [
+      { label: "Backend", url: "https://github.com/xStranged1/gym-back" },
+      { label: "Frontend", url: "https://github.com/xStranged1/gym-front-app" },
+    ],
     storeUrl: "https://play.google.com/store/apps/details?id=com.fedevalle.xtremegym&pli=1",
   },
   {
@@ -65,6 +69,9 @@ export const projects = [
       "Además de participar en tareas de análisis, diseño, elicitación y validación de requerimientos junto al área académica, me enfoqué especialmente en el diseño e implementación del módulo de Asistencias, definiendo reglas de negocio, modelado de datos y lógica de validación automática de porcentajes mínimos, asegurando consistencia y trazabilidad de la información.",
     mainTags: ["Laravel", "Docker", "MariaDB"],
     allTags: ["Laravel", "PHP", "Docker", "Docker Compose", "MariaDB", "Nginx", "Vite", "Mailhog", "PDF", "Excel", "Roles & Permisos"],
+    repoUrls: [
+      { label: "Repositorio", url: "https://github.com/FranciscoMontiron/PAICAT" },
+    ],
   },
   {
     year: "2025",
@@ -89,6 +96,9 @@ export const projects = [
       "Esta experiencia fue especialmente enriquecedora para mi crecimiento profesional. Me permitió profundizar en el uso de GitHub Actions, comprender en la práctica la implementación de CI/CD y trabajar bajo una metodología ágil, entendiendo la importancia del testing, la revisión de código y los procesos colaborativos en entornos reales de desarrollo.",
     mainTags: ["Django", "Python", "Docker"],
     allTags: ["Django", "Python", "Docker", "Playwright", "GitHub Actions", "CI/CD", "Ruff", "Git", "SSR"],
+    repoUrls: [
+      { label: "Repositorio", url: "https://github.com/SerraFacundo/eventhub" },
+    ],
   },
 ];
 
