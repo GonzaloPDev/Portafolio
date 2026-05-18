@@ -47,6 +47,21 @@
   border-radius: var(--radius-full);
 }
 
+.role-sub {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-top: var(--space-sm);
+  margin-left: var(--space-xs);
+  letter-spacing: 0.3px;
+  text-align: left;
+  background: var(--bg-card-hover);
+  border: 1px solid var(--border);
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+}
+
 .available-badge {
   display: inline-flex;
   align-items: center;

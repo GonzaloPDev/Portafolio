@@ -15,6 +15,7 @@ export default function RightPanel({ activeNav, setActiveNav }) {
   const [originRect, setOriginRect] = useState(null);
   const isScrollingTo = useRef(false);
   const lastNav = useRef(activeNav);
+  const scrollTimeoutRef = useRef(null);
 
   useEffect(() => {
     const el = sectionRefs.current[activeNav];
@@ -25,30 +26,64 @@ export default function RightPanel({ activeNav, setActiveNav }) {
     isScrollingTo.current = true;
     el.scrollIntoView({ behavior: "smooth", block: goingDown ? "start" : "end" });
     lastNav.current = activeNav;
-    setTimeout(() => { isScrollingTo.current = false; }, 1000);
+    setTimeout(() => { isScrollingTo.current = false; }, 800);
   }, [activeNav]);
 
-  const handleScroll = useCallback(() => {
+  const detectSection = useCallback(() => {
     if (isScrollingTo.current) return;
     const container = scrollRef.current;
     if (!container) return;
-    const scrollMid = container.scrollTop + container.clientHeight * 0.4;
-    let current = NAV_KEYS[0];
+
+    const containerTop = container.scrollTop;
+    const containerHeight = container.clientHeight;
+    const threshold = containerHeight * 0.5;
+
+    let currentSection = NAV_KEYS[0];
+    let maxOverlap = 0;
+
     NAV_KEYS.forEach((key) => {
       const el = sectionRefs.current[key];
-      if (el && el.offsetTop <= scrollMid) current = key;
+      if (!el) return;
+
+      const sectionTop = el.offsetTop - container.offsetTop;
+      const sectionHeight = el.offsetHeight;
+      const sectionBottom = sectionTop + sectionHeight;
+
+      const visibleTop = Math.max(0, containerTop - sectionTop);
+      const visibleBottom = Math.min(sectionHeight, (containerTop + containerHeight) - sectionTop);
+      const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+
+      const overlap = visibleHeight;
+
+      if (overlap > maxOverlap) {
+        maxOverlap = overlap;
+        currentSection = key;
+      }
     });
-    if (current !== lastNav.current) {
-      lastNav.current = current;
-      setActiveNav(current);
+
+    if (currentSection !== lastNav.current) {
+      lastNav.current = currentSection;
+      setActiveNav(currentSection);
     }
   }, [setActiveNav]);
+
+  const handleScroll = useCallback(() => {
+    if (scrollTimeoutRef.current) {
+      cancelAnimationFrame(scrollTimeoutRef.current);
+    }
+    scrollTimeoutRef.current = requestAnimationFrame(detectSection);
+  }, [detectSection]);
 
   useEffect(() => {
     const container = scrollRef.current;
     if (!container) return;
     container.addEventListener("scroll", handleScroll, { passive: true });
-    return () => container.removeEventListener("scroll", handleScroll);
+    return () => {
+      if (scrollTimeoutRef.current) {
+        cancelAnimationFrame(scrollTimeoutRef.current);
+      }
+      container.removeEventListener("scroll", handleScroll);
+    };
   }, [handleScroll]);
 
   const handleProjectClick = (project, rect) => {

@@ -66,6 +66,7 @@ export default function MobileLanding() {
         </div>
         <h1 className="name">Gonzalo Perez</h1>
         <span className="role">Full Stack Developer</span>
+        <span className="role-sub">Business Analytic</span>
         <div className="available-badge">Disponible para trabajar</div>
 
         <div className="socials mobile-socials">

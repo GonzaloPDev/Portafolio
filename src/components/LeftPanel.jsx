@@ -24,6 +24,7 @@ const LeftPanel = memo(function LeftPanel({ activeNav, setActiveNav }) {
           </div>
           <h1 className="name">Gonzalo Perez</h1>
           <span className="role">Full Stack Developer</span>
+          <span className="role-sub">Business Analytic</span>
           <div className="available-badge">Disponible para trabajar</div>
         </div>
 
