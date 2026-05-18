@@ -27,6 +27,7 @@ export default function App() {
   if (isMobile) {
     return (
       <>
+        <a href="#main-content" className="skip-link">Saltar al contenido principal</a>
         <GridBackground />
         <MouseGlow />
         <MobileLanding />
@@ -36,10 +37,13 @@ export default function App() {
 
   return (
     <div className="portfolio">
+      <a href="#main-content" className="skip-link">Saltar al contenido principal</a>
       <GridBackground />
       <MouseGlow />
       <LeftPanel activeNav={activeNav} setActiveNav={setActiveNav} />
-      <RightPanel activeNav={activeNav} setActiveNav={setActiveNav} />
+      <main id="main-content">
+        <RightPanel activeNav={activeNav} setActiveNav={setActiveNav} />
+      </main>
     </div>
   );
 }

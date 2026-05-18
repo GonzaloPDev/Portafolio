@@ -25,7 +25,7 @@ export default function MobileLanding() {
 
   const renderSection = (key) => {
     switch (key) {
-      case "ABOUT":       return <AboutSection />;
+      case "ABOUT":       return <AboutSection onNavigate={() => {}} />;
       case "TECNOLOGÍAS": return <TechSection />;
       case "CONTACTO":    return <ContactSection />;
       case "PROYECTOS":
@@ -57,7 +57,7 @@ export default function MobileLanding() {
             src={profilePic}
             alt="Gonzalo Perez"
             className="mobile-avatar"
-            fetchpriority="high"
+            fetchPriority="high"
             loading="eager"
             width="100"
             height="100"
@@ -65,7 +65,8 @@ export default function MobileLanding() {
           />
         </div>
         <h1 className="name">Gonzalo Perez</h1>
-        <h2 className="role">Jr. Full Stack Developer</h2>
+        <span className="role">Full Stack Developer</span>
+        <div className="available-badge">Disponible para trabajar</div>
 
         <div className="socials mobile-socials">
           {socialLinks.map((s) => (

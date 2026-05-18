@@ -1,8 +1,11 @@
-import React from "react";
+import React, { memo, useCallback } from "react";
 import { navItems, socialLinks } from "../data/data.jsx";
 import profilePic from "../media/Perfil.webp";
 
-export default function LeftPanel({ activeNav, setActiveNav }) {
+const LeftPanel = memo(function LeftPanel({ activeNav, setActiveNav }) {
+  const handleNavClick = useCallback((item) => {
+    setActiveNav(item);
+  }, [setActiveNav]);
   return (
     <aside className="left-panel">
       <div className="left-content">
@@ -12,7 +15,7 @@ export default function LeftPanel({ activeNav, setActiveNav }) {
               src={profilePic}
               alt="Gonzalo Perez"
               className="profile-avatar"
-              fetchpriority="high"
+              fetchPriority="high"
               loading="eager"
               width="150"
               height="150"
@@ -20,7 +23,8 @@ export default function LeftPanel({ activeNav, setActiveNav }) {
             />
           </div>
           <h1 className="name">Gonzalo Perez</h1>
-          <h2 className="role">Análisis de Sistemas · Full Stack Developer</h2>
+          <span className="role">Full Stack Developer</span>
+          <div className="available-badge">Disponible para trabajar</div>
         </div>
 
         <nav className="nav">
@@ -28,7 +32,7 @@ export default function LeftPanel({ activeNav, setActiveNav }) {
             <button
               key={item}
               className={`nav-item ${activeNav === item ? "nav-active" : ""}`}
-              onClick={() => setActiveNav(item)}
+              onClick={() => handleNavClick(item)}
             >
               <span className="nav-line" />
               {item}
@@ -53,4 +57,6 @@ export default function LeftPanel({ activeNav, setActiveNav }) {
       </div>
     </aside>
   );
-}
+});
+
+export default LeftPanel;

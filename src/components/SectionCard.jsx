@@ -1,8 +1,8 @@
-import React, { useRef } from "react";
+import React, { useRef, memo } from "react";
 
-export default function SectionCard({ item, active, index, phase, onClick }) {
+const SectionCard = memo(function SectionCard({ item, active, index, phase, onClick }) {
   const cardRef = useRef(null);
-  const delay = `${index * 80}ms`;
+  const delay = `${index * 100}ms`;
 
   const handleClick = () => {
     if (!onClick) return;
@@ -11,6 +11,7 @@ export default function SectionCard({ item, active, index, phase, onClick }) {
   };
 
   const tags = item.mainTags || item.tags || [];
+  const tagCategories = item.tagCategories || [];
 
   return (
     <div
@@ -19,23 +20,30 @@ export default function SectionCard({ item, active, index, phase, onClick }) {
       style={{ animationDelay: delay, transitionDelay: delay }}
       onClick={handleClick}
     >
-      <div className="exp-period-col">
-        <span className="exp-year">{item.year || item.period}</span>
-        {item.current && <span className="exp-current">Actualidad</span>}
-      </div>
+      {item.thumbnail && (
+        <img src={item.thumbnail} alt={item.title} className="exp-thumb" />
+      )}
       <div className="exp-content">
+        <div className="exp-period-col">
+          <span className="exp-year">{item.year || item.period}</span>
+          {item.current && <span className="exp-current">Actualidad</span>}
+        </div>
         <h3 className="exp-title">
-          {item.title}
-          {item.company && <> · <span>{item.company}</span></>}
-          <span className="exp-arrow">↗</span>
+          <span className="exp-title-main">
+            {item.title}
+            {item.company && <span className="exp-subtitle"> · {item.company}</span>}
+            <span className="exp-arrow">↗</span>
+          </span>
         </h3>
         <p className="exp-description">{item.intro || item.description}</p>
         <div className="exp-tags">
-          {tags.map((tag) => (
-            <span key={tag} className="tag">{tag}</span>
+          {tags.map((tag, i) => (
+            <span key={tag} className={`tag ${tagCategories[i] || ''}`}>{tag}</span>
           ))}
         </div>
       </div>
     </div>
   );
-}
+});
+
+export default SectionCard;

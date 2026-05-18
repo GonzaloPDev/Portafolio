@@ -1,8 +1,8 @@
 .tech-section {
   display: flex;
   flex-direction: column;
-  gap: 36px;
-  padding: 8px 0;
+  gap: var(--space-lg);
+  padding: var(--space-sm) 0;
 }
 
 .tech-intro {
@@ -14,69 +14,69 @@
 .tech-groups {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: var(--space-md);
 }
 
 .tech-group {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 20px;
-  border-radius: 10px;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  border-radius: var(--radius-lg);
   border: 1px solid transparent;
-  transition: all 0.25s ease;
+  background: var(--bg-card);
+  transition: all var(--duration-normal) var(--ease-out);
 }
 
 .tech-group:hover {
-  background: var(--bg-card);
   border-color: var(--border);
-  box-shadow: 0 4px 24px rgba(74, 158, 186, 0.08),
-              0 1px 4px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-md), 0 0 0 1px var(--border);
+  transform: translateY(-2px);
 }
 
 .tech-group-header {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: var(--space-xs);
 }
 
 .tech-category {
-  font-size: 0.82rem;
-  font-weight: 800;
+  font-size: 0.72rem;
+  font-weight: 700;
   letter-spacing: 2.5px;
   text-transform: uppercase;
   color: var(--accent);
-  text-shadow: 0 0 16px rgba(74, 158, 186, 0.5);
   border-left: 2px solid var(--accent);
-  padding-left: 10px;
+  padding-left: var(--space-sm);
 }
 
 .tech-description {
   font-size: 0.83rem;
   color: var(--text-muted);
   line-height: 1.5;
-  padding-left: 12px;
+  padding-left: var(--space-sm);
 }
 
 .tech-bubbles {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: var(--space-sm);
 }
 
 .tech-bubble {
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 500;
-  color: var(--text-primary);
-  background: var(--accent-dim);
+  color: var(--text-secondary);
+  background: var(--bg-card-hover);
   border: 1px solid var(--border);
-  padding: 5px 14px;
-  border-radius: 99px;
-  transition: all 0.2s ease;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  transition: all var(--duration-normal) var(--ease-out);
   cursor: default;
 }
 
 .tech-bubble:hover {
+  background: var(--accent-dim);
   color: var(--accent);
   border-color: var(--accent);
   transform: translateY(-2px);

@@ -61,7 +61,7 @@ export default function RightPanel({ activeNav, setActiveNav }) {
 
       <section className="right-section" data-section="ABOUT"
         ref={(el) => (sectionRefs.current["ABOUT"] = el)}>
-        <AboutSection />
+        <AboutSection onNavigate={setActiveNav} />
       </section>
 
       <div className="section-divider" />

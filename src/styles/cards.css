@@ -1,7 +1,7 @@
 .exp-list {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: var(--space-xs);
 }
 
 .section-wrapper {
@@ -11,46 +11,65 @@
 /* ── CARD ── */
 .exp-card {
   display: grid;
-  grid-template-columns: 80px 1fr;
-  gap: 24px;
-  padding: 24px;
-  border-radius: 8px;
+  grid-template-columns: 100px 1fr;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  border-radius: var(--radius-lg);
   border: 1px solid transparent;
-  transition: all 0.25s ease;
+  transition: all var(--duration-normal) var(--ease-out);
   cursor: pointer;
 }
 
 .exp-card:hover {
   background: var(--bg-card);
   border-color: var(--border);
-  box-shadow: 0 4px 32px rgba(2, 8, 20, 0.5);
+  box-shadow: var(--shadow-lg), 0 0 0 1px var(--border);
+  transform: translateY(-2px);
 }
 
-/* Columna de fecha */
+.exp-thumb {
+  width: 100px;
+  height: 70px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  border: 1px solid var(--border);
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.exp-card:hover .exp-thumb {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Columna de fecha - ahora integrada en el contenido */
 .exp-period-col {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 4px;
-  padding-top: 4px;
+  align-items: center;
+  gap: var(--space-sm);
 }
 
 .exp-year {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 1px;
   color: var(--text-muted);
   text-transform: uppercase;
   white-space: nowrap;
+  background: var(--bg-card-hover);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
 }
 
 .exp-current {
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   font-weight: 600;
   letter-spacing: 0.8px;
-  color: var(--accent);
+  color: #10B981;
   text-transform: uppercase;
   white-space: nowrap;
+  background: rgba(16, 185, 129, 0.1);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
 }
 
 .exp-card:hover .exp-year {
@@ -60,16 +79,25 @@
 .exp-content {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--space-sm);
 }
 
 .exp-title {
-  font-size: 0.98rem;
+  font-size: 1.05rem;
   font-weight: 600;
   color: var(--text-primary);
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.exp-title-main {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
   flex-wrap: wrap;
 }
 
@@ -78,13 +106,14 @@
 }
 
 .exp-arrow {
-  font-size: 0.9rem;
+  font-size: 1rem;
   opacity: 0.7;
-  transition: transform 0.2s;
+  transition: all var(--duration-fast) var(--ease-out);
 }
 
 .exp-card:hover .exp-arrow {
-  transform: translate(2px, -2px);
+  transform: translate(3px, -3px);
+  opacity: 1;
 }
 
 .exp-subtitle {
@@ -101,24 +130,38 @@
 .exp-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 4px;
+  gap: var(--space-xs);
+  margin-top: var(--space-sm);
 }
 
 .tag {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 500;
-  color: var(--accent);
-  background: var(--accent-dim);
+  color: var(--text-secondary);
+  background: var(--bg-card-hover);
   border: 1px solid var(--border);
-  padding: 4px 12px;
-  border-radius: 99px;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-full);
   letter-spacing: 0.3px;
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.tag.frontend { color: #60A5FA; border-color: rgba(96, 165, 250, 0.3); }
+.tag.backend { color: #34D399; border-color: rgba(52, 211, 153, 0.3); }
+.tag.database { color: #A78BFA; border-color: rgba(167, 139, 250, 0.3); }
+.tag.devops { color: #F472B6; border-color: rgba(244, 114, 182, 0.3); }
+.tag.mobile { color: #FBBF24; border-color: rgba(251, 191, 36, 0.3); }
+
+.tag:hover {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-1px);
 }
 
 @media (max-width: 768px) {
   .exp-card {
     grid-template-columns: 1fr;
-    gap: 8px;
+    gap: var(--space-sm);
   }
 }
